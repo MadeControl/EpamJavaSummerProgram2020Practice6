@@ -15,7 +15,7 @@ public class Part1 {
 
 		System.setIn(new ByteArrayInputStream(CONTENT.getBytes(StandardCharsets.UTF_8)));
 
-		WordContainer.main(args);
+		WordContainer.main(null);
 
 	}
 

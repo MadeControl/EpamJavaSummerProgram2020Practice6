@@ -7,11 +7,10 @@ import java.util.logging.Logger;
 public class WordContainer {
 
 	private static final Logger LOGGER = Logger.getLogger(WordContainer.class.getName());
-	private static Map<String, Word> wordTreeMap;
-	
+
 	public static void main(String[] args) {
 
-		wordTreeMap = new TreeMap<>();
+		Map<String, Word> wordTreeMap = new TreeMap<>();
 
 		try(BufferedReader bf = new BufferedReader(new InputStreamReader(System.in))) {
 
