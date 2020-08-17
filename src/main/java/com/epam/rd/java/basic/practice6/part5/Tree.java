@@ -187,9 +187,9 @@ public class Tree<E extends Comparable<E>> {
 
         if(node != null) {
 
-            print(node.rightNode, indentation + "  ");
-            System.out.println(indentation + node.element);
             print(node.leftNode, indentation + "  ");
+            System.out.println(indentation + node.element);
+            print(node.rightNode, indentation + "  ");
 
         }
     }

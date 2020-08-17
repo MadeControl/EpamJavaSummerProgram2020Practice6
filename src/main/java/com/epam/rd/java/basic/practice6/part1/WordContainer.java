@@ -7,9 +7,11 @@ import java.util.logging.Logger;
 public class WordContainer {
 
 	private static final Logger LOGGER = Logger.getLogger(WordContainer.class.getName());
-	private static final Map<String, Word> WORD_TREE_MAP = new TreeMap<>();
+	private static Map<String, Word> wordTreeMap;
 	
 	public static void main(String[] args) {
+
+		wordTreeMap = new TreeMap<>();
 
 		try(BufferedReader bf = new BufferedReader(new InputStreamReader(System.in))) {
 
@@ -28,13 +30,13 @@ public class WordContainer {
 					break;
 				}
 
-				Word newWord = createWordObject(word, WORD_TREE_MAP);
+				Word newWord = createWordObject(word, wordTreeMap);
 
-				WORD_TREE_MAP.put(word, newWord);
+				wordTreeMap.put(word, newWord);
 
 			}
 
-			WORD_TREE_MAP.entrySet().stream()
+			wordTreeMap.entrySet().stream()
 					.sorted(Map.Entry.<String , Word>comparingByValue().reversed())
 					.forEach(x -> System.out.println(x.getKey() + " : " + x.getValue().getFrequency()));
 

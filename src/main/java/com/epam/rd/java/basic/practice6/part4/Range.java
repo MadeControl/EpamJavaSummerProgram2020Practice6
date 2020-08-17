@@ -1,6 +1,7 @@
 package com.epam.rd.java.basic.practice6.part4;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class Range implements Iterable<Integer> {
 
@@ -46,6 +47,10 @@ public class Range implements Iterable<Integer> {
 
         @Override
         public Integer next() {
+            if(!hasNext()) {
+                throw new NoSuchElementException();
+            }
+
             if(!reversedOrder){
                 return cursor++;
             } else {
