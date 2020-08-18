@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Tree<E extends Comparable<E>> {
 
-    public Node<E> root;
+    Node<E> root;
     
     public boolean add(E element) {
 

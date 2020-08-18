@@ -111,5 +111,18 @@ public class Part6Test {
         return byteArrayOutputStream.toString();
 
     }
+
+    @Test
+    public void allMethodsShouldCorrectlyExecute() {
+
+        final String[] input = new String[] {"-i", "part6.txt", "-t", "frequency"};
+
+        Assert.assertTrue(Part6.checkInput(input));
+
+        Assert.assertNotNull(Part6.doTask("frequency", input));
+
+        Assert.assertNotNull(Part6.readFromFile("part6.txt"));
+
+    }
     
 }

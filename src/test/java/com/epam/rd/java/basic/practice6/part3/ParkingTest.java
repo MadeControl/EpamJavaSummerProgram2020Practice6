@@ -54,6 +54,8 @@ public class ParkingTest {
         final String expectedStateParking = "1111";
         final String actualStateParking = parking.getStateParking();
 
+        Assert.assertNotNull(actualStateParking);
+
         Assert.assertFalse(actualBoolean);
 
         Assert.assertEquals(expectedStateParking, actualStateParking);
