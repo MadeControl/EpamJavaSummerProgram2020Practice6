@@ -14,17 +14,17 @@ public class Part6 {
 
         String[] input;
 
-        if(args == null) {
+        if (args == null) {
             throw new NullPointerException();
         } else {
             input = args;
         }
 
-        if(args.length != 4) {
+        if (args.length != 4) {
             return;
         }
 
-        if(!checkInput(input)){
+        if (!checkInput(input)) {
             return;
         }
 
@@ -39,11 +39,15 @@ public class Part6 {
 
     public static boolean checkInput(String[] array) {
 
-        if(!array[0].equals("-i") && !array[0].equals("--input")) {
+        if(array.length != 4) {
             return false;
         }
 
-        if(!array[2].equals("-t") && !array[2].equals("--task")) {
+        if (!array[0].equals("-i") && !array[0].equals("--input")) {
+            return false;
+        }
+
+        if (!array[2].equals("-t") && !array[2].equals("--task")) {
             return false;
         }
 
@@ -55,7 +59,7 @@ public class Part6 {
 
         StringBuilder sb = new StringBuilder();
 
-        try(BufferedReader bf = new BufferedReader(new FileReader(fileName))) {
+        try (BufferedReader bf = new BufferedReader(new FileReader(fileName))) {
 
             String string;
 
@@ -75,12 +79,12 @@ public class Part6 {
 
     public static String doTask(String taskName, String[] wordsArray) {
 
-        if(taskName.equals(FREQUENCY)) {
+        if (taskName.equals(FREQUENCY)) {
 
             Part61 task = new Part61(wordsArray);
             return task.doTaskFrequency();
 
-        } else if(taskName.equals(LENGTH)) {
+        } else if (taskName.equals(LENGTH)) {
 
             Part62 task = new Part62(wordsArray);
             return task.doTaskLength();
@@ -93,5 +97,5 @@ public class Part6 {
         }
 
     }
-    
+
 }
