@@ -81,6 +81,8 @@ public class RangeTest {
 
         Assert.assertTrue(iter.hasNext());
 
+        Assert.assertNotNull(range.iterator());
+
         Assert.assertEquals(expectedInteger, iter.next());
 
     }

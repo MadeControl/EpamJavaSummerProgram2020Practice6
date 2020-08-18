@@ -123,6 +123,7 @@ public class Part6Test {
 
         Assert.assertNotNull(Part6.readFromFile("part6.txt"));
 
+
     }
     
 }

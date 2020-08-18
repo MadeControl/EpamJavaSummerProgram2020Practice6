@@ -1,13 +1,9 @@
 package com.epam.rd.java.basic.practice6.part2;
 
-import com.epam.rd.java.basic.practice6.part1.WordContainer;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class Part2Test {
@@ -98,6 +94,20 @@ public class Part2Test {
 
         Assert.assertNotNull(actualString);
 
+    }
+
+    @Test
+    public void part2ClassMethodsShouldCorrectlyExecute() {
+
+        List<Integer> list1 = new ArrayList<>(Part2.createArrayList());
+        List<Integer> list2 = new LinkedList<>(Part2.createLinkedList());
+
+        Assert.assertNotNull(Part2.createArrayList());
+        Assert.assertNotNull(Part2.createLinkedList());
+        Assert.assertNotNull(Part2.createFullList());
+        Assert.assertNotEquals(Part2.removeByIndex(list1, 3), Part2.removeByIterator(list2, 3));
+
+        Assert.assertNotNull(Part2.getResult(list1, Part2.removeByIterator(list1, 3), "Title"));
     }
     
 }

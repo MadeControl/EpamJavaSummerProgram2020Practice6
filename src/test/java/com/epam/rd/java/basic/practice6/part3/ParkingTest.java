@@ -1,14 +1,9 @@
 package com.epam.rd.java.basic.practice6.part3;
 
-import com.epam.rd.java.basic.practice6.part1.WordContainer;
-import com.epam.rd.java.basic.practice6.part5.Tree;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.nio.charset.StandardCharsets;
 
 public class ParkingTest {
 
@@ -127,6 +122,19 @@ public class ParkingTest {
         System.setOut(System.out);
 
         Assert.assertEquals(expectedString, actualString);
+
+    }
+
+    @Test
+    public void parkingClassMethodsShouldExecuteCorrectly() {
+
+        Parking parking = new Parking(5);
+
+        Assert.assertTrue(parking.arrive(1));
+        Assert.assertTrue(parking.depart(1));
+
+        Assert.assertNotNull(parking.createStateParking());
+        Assert.assertNotNull(parking.getStateParking());
 
     }
 }
