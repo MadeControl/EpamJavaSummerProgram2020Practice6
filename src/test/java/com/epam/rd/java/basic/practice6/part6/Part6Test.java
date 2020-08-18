@@ -125,44 +125,5 @@ public class Part6Test {
 
 
     }
-
-    @Test
-    public void part61MethodsShouldCorrectlyExecute() {
-
-        String text = Part6.readFromFile("part6.txt");
-
-        Part61 part61 = new Part61(text.split("\\s"));
-
-        Assert.assertNotNull(part61.returnInfoWhenRepeatsIsOne(3));
-        Assert.assertNotNull(part61.returnInfoWhenRepeatsMoreOne(3));
-        Assert.assertNotNull(part61.doTaskFrequency());
-        Assert.assertNotNull(part61.assembleString("word", 3));
-
-    }
-
-    @Test
-    public void part62MethodsShouldCorrectlyExecute() {
-
-        String text = Part6.readFromFile("part6.txt");
-
-        Part61 part61 = new Part61(text.split("\\s"));
-
-        Assert.assertNotNull(part61.returnInfoWhenRepeatsIsOne(3));
-        Assert.assertNotNull(part61.returnInfoWhenRepeatsMoreOne(3));
-        Assert.assertNotNull(part61.doTaskFrequency());
-        Assert.assertNotNull(part61.assembleString("word", 3));
-
-    }
-
-    @Test
-    public void part63MethodsShouldCorrectlyExecute() {
-
-        String text = Part6.readFromFile("part6.txt");
-
-        Part61 part61 = new Part61(text.split("\\s"));
-
-        Assert.assertNotNull(part61.doTaskFrequency());
-
-    }
     
 }
