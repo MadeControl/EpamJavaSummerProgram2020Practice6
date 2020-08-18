@@ -76,6 +76,20 @@ public class TreeTest {
 
         Assert.assertNotNull(tree.returnNodeOfElementThatWillBeDeleted(tree.root, 10));
 
+        final Tree<Integer> tree1 = new Tree<>();
+
+        tree.add(1);
+        tree.add(3);
+        tree.add(7);
+        tree.add(9);
+
+        Tree.Node<Integer> el1 = tree.returnNodeOfElementThatWillBeDeleted(tree.root, 1);
+        Tree.Node<Integer> el3 = tree.returnNodeOfElementThatWillBeDeleted(el1.rightNode, 3);
+        Tree.Node<Integer> el7 = tree.returnNodeOfElementThatWillBeDeleted(el3.rightNode, 7);
+        Tree.Node<Integer> el9 = tree.returnNodeOfElementThatWillBeDeleted(el7.rightNode, 9);
+
+        Assert.assertTrue(tree1.toNodeParentOfCurrentAndChildOfCurrent(el7, el9));
+
 
     }
 

@@ -29,8 +29,8 @@ public class Part61 {
 
         listUniqueWords.forEach(x ->
                 listQuantitiesOfEachWord.add((int) listNonUniqueWords.stream()
-                                                                        .filter(t -> t.equals(x))
-                                                                        .count()));
+                        .filter(t -> t.equals(x))
+                        .count()));
         /////////////////////////////////
         List<Integer> listOfThreeHigherQuantities = listQuantitiesOfEachWord.stream()
                 .sorted()
@@ -43,12 +43,12 @@ public class Part61 {
                 .collect(Collectors.toList());
         /////////////////////////////////
 
-        for(int i : listOfThreeHigherQuantities) {
+        for (int i : listOfThreeHigherQuantities) {
 
             int count = (int) listOfThreeHigherQuantities.stream().filter(x -> x == i).count();
             String newInfo;
 
-            if(count == 1) {
+            if (count == 1) {
 
                 newInfo = returnInfoWhenRepeatsIsOne(i);
 
@@ -69,7 +69,7 @@ public class Part61 {
 
         StringBuilder sb = new StringBuilder();
 
-        for(String s : list) {
+        for (String s : list) {
             sb.append(s).append("\n");
         }
 
@@ -93,9 +93,9 @@ public class Part61 {
         int index = 0;
         String word = null;
 
-        for(int i : listQuantitiesOfEachWord) {
+        for (int i : listQuantitiesOfEachWord) {
 
-            if(i == quantityWord) {
+            if (i == quantityWord) {
 
                 index = listQuantitiesOfEachWord.indexOf(i);
                 word = listUniqueWords.get(index);
@@ -125,7 +125,7 @@ public class Part61 {
 
     public void deleteElementsFromAllLists(String word, int quantityRepeats) {
 
-        for(int i = 0; i < quantityRepeats; i++) {
+        for (int i = 0; i < quantityRepeats; i++) {
             listNonUniqueWords.remove(word);
         }
 
@@ -133,4 +133,5 @@ public class Part61 {
         listQuantitiesOfEachWord.remove(quantityRepeats);
 
     }
+
 }

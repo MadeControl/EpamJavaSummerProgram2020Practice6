@@ -197,9 +197,9 @@ public class Tree<E extends Comparable<E>> {
     public static final class Node<E> {
 
         private E element;
-        private Node<E> parentNode = null;
-        private Node<E> leftNode = null;
-        private Node<E> rightNode = null;
+        Node<E> parentNode = null;
+        Node<E> leftNode = null;
+        Node<E> rightNode = null;
 
         public Node(E element) {
             this.element = element;
