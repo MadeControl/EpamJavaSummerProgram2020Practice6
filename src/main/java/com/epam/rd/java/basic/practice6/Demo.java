@@ -19,6 +19,7 @@ public class Demo {
         Part4.main(null);
         Part5.main(null);
 
+        
         System.out.println("\n---FREQUENCY---");
         Part6.main(new String[]{"--input", FILE_NAME, "--task", "frequency"});
         System.out.println("\n---LENGTH---");
