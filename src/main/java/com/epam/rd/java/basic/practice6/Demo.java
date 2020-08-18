@@ -9,6 +9,8 @@ import com.epam.rd.java.basic.practice6.part6.Part6;
 
 public class Demo {
 
+	private static final String FILE_NAME = "part6.txt";
+
 	public static void main(String[] args) {
 
 		Part1.main(null);
@@ -17,7 +19,9 @@ public class Demo {
 		Part4.main(null);
 		Part5.main(null);
 
-		Part6.main(new String[]{"--input", "part6.txt", "-t", "frequency"});
+		Part6.main(new String[]{"--input", FILE_NAME, "--task", "frequency"});
+		Part6.main(new String[]{"-i", FILE_NAME, "-t", "length"});
+		Part6.main(new String[]{"--input", FILE_NAME, "-t", "duplicates"});
 
 	}
 

@@ -6,11 +6,12 @@ import java.util.stream.Collectors;
 public class Part61 {
 
     private static final String INDENTATION = " ==> ";
-    private List<String> listNonUniqueWords;
+
+    private final StringBuilder resultOfTask = new StringBuilder();
+    private final List<String> listNonUniqueWords;
+
     private List<String> listUniqueWords;
     private List<Integer> listQuantitiesOfEachWord;
-    private List<Integer> listOfThreeHigherQuantities;
-    private StringBuilder resultOfTask = new StringBuilder();
 
     public Part61(String[] wordsArray) {
 
@@ -31,7 +32,7 @@ public class Part61 {
                                                                         .filter(t -> t.equals(x))
                                                                         .count()));
         /////////////////////////////////
-        listOfThreeHigherQuantities = listQuantitiesOfEachWord.stream()
+        List<Integer> listOfThreeHigherQuantities = listQuantitiesOfEachWord.stream()
                 .sorted()
                 .collect(Collectors.toList());
 
@@ -53,7 +54,7 @@ public class Part61 {
 
             } else {
 
-                newInfo = returnNewInfo(i, count);
+                newInfo = returnNewInformation(i);
 
             }
             resultOfTask.append(newInfo);
@@ -87,37 +88,31 @@ public class Part61 {
 
     }
 
-    public String returnNewInfo(int number, int quantityRepeats) {
+    public String returnNewInformation(int quantityWord) {
 
-        LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
-        StringBuilder sb = new StringBuilder();
+        int index = 0;
+        String word = null;
 
-        while (true) {
+        for(int i : listQuantitiesOfEachWord) {
 
-            for(String word : listNonUniqueWords) {
+            if(i == quantityWord) {
 
-                Integer count = map.get(word);
-
-                if(count == null) {
-
-                    count = 0;
-
-                }
-
-                if(count == number-1) {
-
-                    String newInfo = assembleString(word, number);
-                    deleteElementsFromAllLists(word, quantityRepeats);
-
-                    return sb.append(newInfo).toString();
-
-                }
-
-                map.put(word, count + 1);
+                index = listQuantitiesOfEachWord.indexOf(i);
+                word = listUniqueWords.get(index);
+                break;
 
             }
 
         }
+
+        if (word == null || index == 0) {
+            return "";
+        }
+
+        String newInfo = assembleString(word, quantityWord);
+        deleteElementsFromAllLists(word, quantityWord);
+
+        return newInfo;
 
     }
 

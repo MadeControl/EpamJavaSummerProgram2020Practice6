@@ -1,24 +1,30 @@
 package com.epam.rd.java.basic.practice6.part6;
 
 import java.io.*;
+import java.util.logging.Logger;
 
 public class Part6 {
 
     private static final String FREQUENCY = "frequency";
     private static final String LENGTH = "length";
     private static final String DUPLICATES = "duplicates";
+    private static final Logger LOGGER = Logger.getLogger(Part6.class.getSimpleName());
 
     public static void main(String[] args) {
 
+        String[] input;
+
         if(args == null) {
             throw new NullPointerException();
+        } else {
+            input = args;
         }
 
         if(args.length != 4) {
             return;
         }
 
-        if(!checkInput(args)){
+        if(!checkInput(input)){
             return;
         }
 
@@ -60,7 +66,7 @@ public class Part6 {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.warning(e.getMessage());
         }
 
         return sb.toString().replaceAll("\\s+", " ");
