@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Tree<E extends Comparable<E>> {
 
-    private Node<E> root;
+    public Node<E> root;
     
     public boolean add(E element) {
 
@@ -46,7 +46,7 @@ public class Tree<E extends Comparable<E>> {
 
 
 
-    private boolean putElement(Node<E> node, E element) {
+    public boolean putElement(Node<E> node, E element) {
 
         Node<E> currentNode = node;
         Node<E> neededNode = currentNode;
@@ -86,7 +86,7 @@ public class Tree<E extends Comparable<E>> {
 
     }
 
-    private boolean deleteRecursive(Node<E> current, E value) {
+    public boolean deleteRecursive(Node<E> current, E value) {
         if (current == null) {
             return false;
         }
@@ -126,7 +126,7 @@ public class Tree<E extends Comparable<E>> {
         return deleteRecursive(current.rightNode, value);
     }
 
-    private Node<E> returnNodeOfElementThatWillBeDeleted(Node<E> current, E value) {
+    public Node<E> returnNodeOfElementThatWillBeDeleted(Node<E> current, E value) {
 
         if (current == null) {
             return null;
@@ -162,7 +162,7 @@ public class Tree<E extends Comparable<E>> {
         return current;
     }
 
-    private boolean toNodeParentOfCurrentAndChildOfCurrent(Node<E> currentNode, Node<E> childNode) {
+    public boolean toNodeParentOfCurrentAndChildOfCurrent(Node<E> currentNode, Node<E> childNode) {
 
         Node<E> parentNode = currentNode.parentNode;
 
@@ -179,11 +179,11 @@ public class Tree<E extends Comparable<E>> {
 
     }
 
-    private E findSmallestValue(Node<E> root) {
+    public E findSmallestValue(Node<E> root) {
         return root.leftNode == null ? root.element : findSmallestValue(root.leftNode);
     }
 
-    private void print(Node<E> node, String indentation) {
+    public void print(Node<E> node, String indentation) {
 
         if(node != null) {
 
@@ -194,14 +194,14 @@ public class Tree<E extends Comparable<E>> {
         }
     }
 
-    private static final class Node<E> {
+    public static final class Node<E> {
 
         private E element;
         private Node<E> parentNode = null;
         private Node<E> leftNode = null;
         private Node<E> rightNode = null;
 
-        private Node(E element) {
+        public Node(E element) {
             this.element = element;
         }
 

@@ -9,9 +9,6 @@ import java.io.PrintStream;
 public class Part6Test {
 
     private static final String FILE_NAME = "part6.txt";
-    private static final String FREQUENCY = "frequency";
-    private static final String LENGTH = "length";
-    private static final String DUPLICATES = "duplicates";
 
     @Test
     public void shouldCorrectlyReadFromFile() {

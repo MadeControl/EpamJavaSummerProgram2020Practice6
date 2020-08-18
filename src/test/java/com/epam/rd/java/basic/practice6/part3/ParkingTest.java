@@ -1,7 +1,14 @@
 package com.epam.rd.java.basic.practice6.part3;
 
+import com.epam.rd.java.basic.practice6.part1.WordContainer;
+import com.epam.rd.java.basic.practice6.part5.Tree;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 
 public class ParkingTest {
 
@@ -86,5 +93,38 @@ public class ParkingTest {
         Assert.assertEquals(expectedStateParking, actualStateParking);
 
     }
-    
+
+    @Test
+    public void shouldGetCorrectResult_WhenItUsesMethod_Part3Main() {
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(byteArrayOutputStream);
+
+        System.setOut(printStream);
+
+        Part3.main(null);
+
+        final String expectedString = "true\r\n" +
+                "0010\r\n" +
+                "true\r\n" +
+                "0011\r\n" +
+                "true\r\n" +
+                "1011\r\n" +
+                "true\r\n" +
+                "1111\r\n" +
+                "false\r\n" +
+                "1111\r\n" +
+                "true\r\n" +
+                "1011\r\n" +
+                "false\r\n" +
+                "1011\r\n";
+
+        final String actualString = byteArrayOutputStream.toString();
+
+        System.setIn(System.in);
+        System.setOut(System.out);
+
+        Assert.assertEquals(expectedString, actualString);
+
+    }
 }

@@ -4,8 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.TreeMap;
 
 public class WordContainerTest {
@@ -41,6 +43,39 @@ public class WordContainerTest {
         int actualFrequency = word.getFrequency();
 
         Assert.assertEquals(expectedFrequency, actualFrequency);
+
+    }
+
+    @Test
+    public void shouldCorrectlyDoMainMethod() {
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(byteArrayOutputStream);
+
+        System.setOut(printStream);
+
+        final String content =
+                "asd 43 asdf asd 43\n" +
+                        "434 asdf\n" +
+                        "kasdf asdf stop asdf\n" +
+                        "stop";
+
+        System.setIn(new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8)));
+
+        WordContainer.main(null);
+
+        final String expectedString = "asdf : 3\r\n" +
+                                        "43 : 2\r\n" +
+                                        "asd : 2\r\n" +
+                                        "434 : 1\r\n" +
+                                        "kasdf : 1\r\n";
+
+        final String actualString = byteArrayOutputStream.toString();
+
+        System.setIn(System.in);
+        System.setOut(System.out);
+
+        Assert.assertEquals(expectedString, actualString);
 
     }
     

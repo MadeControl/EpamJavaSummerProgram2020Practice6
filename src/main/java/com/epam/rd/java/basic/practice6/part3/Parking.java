@@ -3,7 +3,7 @@ package com.epam.rd.java.basic.practice6.part3;
 public class Parking {
 
     private final int capacity;
-    private String stateParking = "";
+    private String stateParking;
     
     public Parking(int capacity) {
         this.capacity = capacity;

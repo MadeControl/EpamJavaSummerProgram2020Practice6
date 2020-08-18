@@ -31,10 +31,10 @@ public class Word implements Comparable<Word> {
 
     @Override
     public int compareTo(Word o) {
-        if (this.getFrequency() == o.getFrequency()){
+        if (this.frequency == o.frequency){
             return -this.content.length() + o.content.length();
         }
-        return this.getFrequency() - o.getFrequency();
+        return this.frequency - o.frequency;
     }
 
     public int getFrequency() {
