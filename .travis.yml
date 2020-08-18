@@ -4,7 +4,7 @@ jdk: openjdk8
 dist: trusty
 
 before_install:
-  - chmod +x gradle/wrapper/gradle-wrapper.jar
+  - chmod +x build.gradle
 
 cache:
   directories:
