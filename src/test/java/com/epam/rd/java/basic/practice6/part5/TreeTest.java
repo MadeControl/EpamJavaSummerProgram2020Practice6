@@ -1,9 +1,7 @@
 package com.epam.rd.java.basic.practice6.part5;
 
-import com.epam.rd.java.basic.practice6.part3.Part3;
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -70,13 +68,14 @@ public class TreeTest {
 
         Assert.assertEquals(expectedSmallestElement, actualSmallestElement);
 
+        Assert.assertNotNull(tree.findSmallestValue(tree.root));
+
         Assert.assertTrue(tree.putElement(tree.root, 10));
 
         Assert.assertTrue(tree.deleteRecursive(tree.root, 10));
 
-        Tree.Node<Integer> node = tree.returnNodeOfElementThatWillBeDeleted(tree.root, 10);
+        Assert.assertNotNull(tree.returnNodeOfElementThatWillBeDeleted(tree.root, 10));
 
-        Assert.assertNotNull(node);
 
     }
 

@@ -78,5 +78,23 @@ public class WordContainerTest {
         Assert.assertEquals(expectedString, actualString);
 
     }
+
+    @Test
+    public void wordClassMethodsShouldExecuteCorrectly() {
+
+        Word word1 = new Word("111", 1);
+        Word word2 = new Word("111", 1);
+
+        Assert.assertEquals(word1, word2);
+
+        Assert.assertEquals(0, word1.compareTo(word2));
+
+        Assert.assertEquals(word1.hashCode(), word2.hashCode());
+
+        Assert.assertEquals(new Word("111",1), word1);
+
+        Assert.assertEquals(1, word1.getFrequency());
+
+    }
     
 }
