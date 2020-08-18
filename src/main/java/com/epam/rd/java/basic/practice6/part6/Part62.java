@@ -51,11 +51,11 @@ public class Part62 {
 
             if(count == 1) {
 
-                newInfo = returnNewInfo(i);
+                newInfo = returnInfoWhenCountIsOne(i);
 
             } else {
 
-                newInfo = returnNewInformation(i);
+                newInfo = returnInfoWhenCountMoreOne(i);
 
             }
             resultOfTask.append(newInfo);
@@ -74,7 +74,7 @@ public class Part62 {
 
     }
 
-    public String returnNewInfo(int lengthWord) {
+    public String returnInfoWhenCountIsOne(int lengthWord) {
 
         int index = listLengthsOfEachWord.indexOf(lengthWord);
         String word = listUniqueWords.get(index);
@@ -85,7 +85,7 @@ public class Part62 {
 
     }
 
-    public String returnNewInformation(int lengthWord) {
+    public String returnInfoWhenCountMoreOne(int lengthWord) {
 
         int index = 0;
         String word = null;

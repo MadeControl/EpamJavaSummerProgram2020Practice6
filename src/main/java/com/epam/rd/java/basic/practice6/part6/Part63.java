@@ -2,8 +2,8 @@ package com.epam.rd.java.basic.practice6.part6;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Part63 {
 
@@ -18,37 +18,39 @@ public class Part63 {
 
     public String doTaskDuplicates() {
 
-        int foundWords = 0;
-        HashMap<String, Integer> map = new HashMap<>();
+        List<String> listUniqueWords = listNonUniqueWords.stream()
+                .distinct()
+                .collect(Collectors.toList());
 
-        for (String word : listNonUniqueWords) {
+        List<Integer> listQuantitiesOfEachWord = new ArrayList<>();
 
+        listUniqueWords.forEach(x ->
+                listQuantitiesOfEachWord.add((int) listNonUniqueWords.stream()
+                        .filter(t -> t.equals(x))
+                        .count()));
 
-            Integer count = map.get(word);
+        int countWords = 0;
 
-            if (count == null) {
+        for(String word : listNonUniqueWords) {
 
-                count = 0;
+            int index = listUniqueWords.indexOf(word);
+            int countWordDuplicates = listQuantitiesOfEachWord.get(index);
 
-            }
-
-            if (count == 1) {
+            if(countWordDuplicates >= 2) {
 
                 StringBuilder sb = new StringBuilder(word.toUpperCase()).reverse();
 
                 resultOfTask.append(sb).append("\n");
 
-                foundWords++;
+                countWords++;
 
             }
 
-            if (foundWords == 3) {
+            if(countWords == 3) {
 
                 return resultOfTask.toString();
 
             }
-
-            map.put(word, count + 1);
 
         }
 

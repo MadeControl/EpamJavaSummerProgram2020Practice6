@@ -50,11 +50,11 @@ public class Part61 {
 
             if(count == 1) {
 
-                newInfo = returnNewInfo(i);
+                newInfo = returnInfoWhenRepeatsIsOne(i);
 
             } else {
 
-                newInfo = returnNewInformation(i);
+                newInfo = returnInfoWhenRepeatsMoreOne(i);
 
             }
             resultOfTask.append(newInfo);
@@ -77,7 +77,7 @@ public class Part61 {
 
     }
 
-    public String returnNewInfo(int quantityRepeats) {
+    public String returnInfoWhenRepeatsIsOne(int quantityRepeats) {
 
         int index = listQuantitiesOfEachWord.indexOf(quantityRepeats);
         String word = listUniqueWords.get(index);
@@ -88,7 +88,7 @@ public class Part61 {
 
     }
 
-    public String returnNewInformation(int quantityWord) {
+    public String returnInfoWhenRepeatsMoreOne(int quantityWord) {
 
         int index = 0;
         String word = null;
@@ -99,6 +99,7 @@ public class Part61 {
 
                 index = listQuantitiesOfEachWord.indexOf(i);
                 word = listUniqueWords.get(index);
+
                 break;
 
             }
